@@ -3,7 +3,7 @@
 const crypto = require('crypto')
 const formidable = require('formidable')
 const timeformater = require('time-formater')
-const query = require('../../mysql/mysql')
+const query = require('../../api/mysql/mysql.js')
 
 class Admin {
     constructor() {

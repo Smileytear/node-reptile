@@ -1,16 +1,16 @@
 const path = require('path')
-const config = require('config-lite')(path.join(__dirname, '../'))
+const config = require('config-lite')(path.join(__dirname, '../../'))
 const chalk = require('chalk')
 
 const mysql = require('mysql')
 
 let options = {
     connectionLimit: 10,
-    host: config.host,
-    user: config.user,
-    port: config.port,
-    password: config.password,
-    database: config.database
+    host: config.mysql.host,
+    user: config.mysql.user,
+    port: config.mysql.port,
+    password: config.mysql.password,
+    database: config.mysql.database
 }
 const pool = mysql.createPool(options)
 

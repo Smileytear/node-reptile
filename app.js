@@ -5,6 +5,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const chalk = require('chalk')
+const config = require('config-lite')(__dirname)
 
 // Redis session storage for Express ---start
 const redis = require('redis')
@@ -37,7 +38,9 @@ app.use(
         store: new RedisStore({
             client
         }),
-        secret: 'myReptile',
+        secret: config.session.secret,
+        name: config.session.name,
+        cookie: config.session.cookie,
         resave: false
     })
 )
